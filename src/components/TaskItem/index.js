@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
 
 class TaskItem extends Component {
   render() {
-    const { classes, task, status } = this.props;
+    const { classes, task, status, onClickEditing, onClickDelete } = this.props;
     return (
       <Card className={classes.card}>
         <CardContent>
@@ -30,12 +30,23 @@ class TaskItem extends Component {
               {status.label}
             </Grid>
           </Grid>
+          <p>{task.description}</p>
         </CardContent>
         <CardActions className={classes.ActionCard}>
-          <Fab color="primary" aria-label="edit" size="small">
+          <Fab
+            color="primary"
+            aria-label="edit"
+            size="small"
+            onClick={onClickEditing}
+          >
             <EditIcon />
           </Fab>
-          <Fab color="secondary" aria-label="delete" size="small">
+          <Fab
+            color="secondary"
+            aria-label="delete"
+            size="small"
+            onClick={onClickDelete}
+          >
             <DeleteIcon />
           </Fab>
         </CardActions>
@@ -48,6 +59,8 @@ TaskItem.propTypes = {
   classes: PropTypes.object,
   task: PropTypes.object,
   status: PropTypes.object,
+  onClickEditing: PropTypes.func,
+  onClickDelete: PropTypes.func,
 };
 
 export default withStyles(styles)(TaskItem);

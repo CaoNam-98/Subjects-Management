@@ -10,9 +10,6 @@ const styles = (theme) => ({
     padding: theme.spacing(0, 0, 0),
     outline: "none", //đường kẻ nằm bên ngoài phần tử
   },
-  textField: {
-    width: "100%",
-  },
   header: {
     backgroundColor: theme.color.primary,
     color: theme.color.textColor,
@@ -28,10 +25,6 @@ const styles = (theme) => ({
   },
   content: {
     padding: theme.spacing(2),
-  },
-  select: {
-    display: "flex",
-    flexwrap: "wrap",
   },
 });
 

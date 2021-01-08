@@ -51,10 +51,12 @@ module.exports = {
     "arrow-parens": 0,
     "object-curly-newline": 0,
     "import/prefer-default-export": 0,
+    "react/jsx-props-no-spreading": 0,
+    "prefer-arrow-callback": 0,
   },
   plugins: ["prettier"],
   env: {
-    "browser": true,
-    "node": true
-  }
+    browser: true,
+    node: true,
+  },
 };
