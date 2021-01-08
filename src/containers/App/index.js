@@ -12,9 +12,10 @@ import "react-toastify/dist/ReactToastify.css";
 import GloabalLoading from "./../../components/GlobalLoading";
 import Modal from "../../components/Modal";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { ADMIN_ROUTES } from "./../../constants";
+import { ADMIN_ROUTES, ROUTES } from "./../../constants";
 import AdminLayoutRoute from "../../commons/Layout/AdminLayoutRoute";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import DefaultLayoutRoute from "../../commons/Layout/DefaultLayoutRoute";
 
 const store = configureStore();
 
@@ -24,6 +25,22 @@ class App extends Component {
     xhtml = ADMIN_ROUTES.map((route) => {
       return (
         <AdminLayoutRoute
+          key={route.path}
+          path={route.path}
+          name={route.name}
+          exact={route.exact}
+          component={route.component}
+        />
+      );
+    });
+    return xhtml;
+  }
+
+  renderDefaultRouter() {
+    let xhtml = null;
+    xhtml = ROUTES.map((route) => {
+      return (
+        <DefaultLayoutRoute
           key={route.path}
           path={route.path}
           name={route.name}
@@ -46,7 +63,10 @@ class App extends Component {
             <ToastContainer />
             <GloabalLoading />
             <Modal />
-            <Switch>{this.renderAdminRouter()}</Switch>
+            <Switch>
+              {this.renderAdminRouter()}
+              {this.renderDefaultRouter()}
+            </Switch>
           </ThemeProvider>
         </BrowserRouter>
       </Provider>

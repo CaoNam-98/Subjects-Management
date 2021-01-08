@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-cycle
 import Taskboard from "../containers/Taskboard";
 import AdminHomePage from "../containers/AdminHomePage";
+import Login from "../containers/Login";
+import Signin from "../containers/Signin";
 
 export const API_URL = "http://localhost:3000";
 
@@ -37,5 +39,20 @@ export const ADMIN_ROUTES = [
     name: "Quản lý công việc",
     exact: false,
     component: Taskboard,
+  },
+];
+
+export const ROUTES = [
+  {
+    path: "/login",
+    name: "Trang đăng nhập",
+    exact: false,
+    component: Login,
+  },
+  {
+    path: "/signin",
+    name: "Trang đăng ký",
+    exact: false,
+    component: Signin,
   },
 ];

@@ -10,6 +10,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import PropTypes from "prop-types";
+import { withRouter } from "react-router"; // Nếu không thể lấy history, location, match thì có thể dùng withRouter
 
 const menuId = "primary-search-account-menu";
 
@@ -28,9 +29,8 @@ class Header extends Component {
   };
 
   handleMenuClose = () => {
-    this.setState({
-      anchorEl: null,
-    });
+    const { history } = this.props;
+    history.push("/login");
   };
 
   renderMenu = () => {
@@ -101,6 +101,7 @@ Header.propTypes = {
   name: PropTypes.string,
   showSidebar: PropTypes.bool,
   onToggleSidebar: PropTypes.func,
+  history: PropTypes.object,
 };
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(withRouter(Header));
