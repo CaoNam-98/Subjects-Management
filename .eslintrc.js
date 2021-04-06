@@ -45,6 +45,8 @@ module.exports = {
     "arrow-body-style": 0,
     "react/state-in-constructor": 0,
     "react/sort-comp": 0,
+
+    "react/jsx-curly-newline": "off",
     "class-methods-use-this": 0,
     "space-before-blocks": 0,
     "react/jsx-one-expression-per-line": 0,
